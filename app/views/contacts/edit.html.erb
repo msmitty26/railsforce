@@ -1,0 +1,8 @@
+<h1>Editing Contact</h1>
+
+<%= render 'form', contact: @contact %>
+
+<%= link_to 'Delete', @contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<!-- %= link_to 'Show', @contact % --> |
+<%= link_to 'Cancel', contacts_path %>

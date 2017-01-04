@@ -1,0 +1,2 @@
+json.extract! contact, :id, :first_name, :last_name, :email_address, :organization, :title, :phone_number, :created_at, :updated_at, :member, :speaker, :events, :golf, :affiliation_id
+json.url contact_url(contact, format: :json)

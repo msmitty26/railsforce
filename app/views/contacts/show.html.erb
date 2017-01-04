@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <strong>Email Address:</strong>
+  <%= @contact.email_address %>
+</p>
+
+<p>
+  <strong>Affiliation:</strong>
+  <%= contact_affiliation_name(@contact.affiliation_id) %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @contact.organization %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @contact.phone_number %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @contact.member %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @contact.speaker %>
+</p>
+
+<p>
+  <strong>Events / Luncheons:</strong>
+  <%= @contact.events %>
+</p>
+
+<p>
+  <strong>Golf:</strong>
+  <%= @contact.golf %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
