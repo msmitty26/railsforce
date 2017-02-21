@@ -17,78 +17,78 @@
 
 				<div class="container">
 					<div class="row">
-					  <div class="col-xs-12 col-sm-4">
-					   	<%= f.label :first_name %>
-					    <%= f.text_field :first_name %>
+					  <div class="col-sm-4">
+					   	<div class="col-sm-4"><%= f.label :first_name %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :first_name %></div>
 					  </div>
-					  <div class="col-xs-12 col-sm-4">
-					   	<%= f.label :last_name %>
-					    <%= f.text_field :last_name %>
+					  <div class="col-sm-4">
+					   	<div class="col-sm-4"><%= f.label :last_name %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :last_name %></div>
 					  </div>
-					  <div class="col-xs-12 col-sm-4">
-					  </div>
-					</div>
-
-					<div class="row">
-					  <div class="col-xs-12 col-sm-4">
-					    <%= f.label :organization %>
-					    <%= f.text_field :organization %>
-					  </div>
-					  <div class="col-xs-12 col-sm-4">
-					    <%= f.label :title %>
-					    <%= f.text_field :title %>
-					  </div>
-					  <div class="col-xs-12 col-sm-4">
+					  <div class="col-sm-4">
 					  </div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-12 col-sm-4">
-					    <%= f.label :email_address %>
-					    <%= f.text_field :email_address %>
+					  <div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :organization %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :organization, size: 30 %></div>
+					  </div>
+					  <div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :title %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :title, size: 30 %></div>
+					  </div>
+					  <div class="col-sm-4">
+					  </div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :email_address %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :email_address, size: 30 %></div>
 						</div>
-						<div class="col-xs-12 col-sm-4">
-					    <%= f.label :phone_number %>
-					    <%= f.text_field :phone_number %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :phone_number %>:</div>
+					    <div class="col-sm-4"><%= f.text_field :phone_number %></div>
 			  		</div>
-						<div class="col-xs-12 col-sm-4">
+						<div class="col-sm-4">
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-12 col-sm-12">
-					    <%= f.label :affiliation_id %>
-					    <%= f.collection_select :affiliation_id, Affiliation.order(:name),:id,:name, include_blank: true, :remote => true %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :affiliation_id %>:</div>
+					    <div class="col-sm-4"><%= f.collection_select :affiliation_id, Affiliation.order(:name),:id,:name, include_blank: true, :remote => true %></div>
 			  		</div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-12 col-sm-2">
-					    <%= f.label :member %>
-					    <%= f.check_box :member %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :member %>:</div>
+					    <div class="col-sm-4"><%= f.check_box :member %></div>
 			  		</div>
-						<div class="col-xs-12 col-sm-2">
-					    <%= f.label :speaker %>
-					    <%= f.check_box :speaker %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :speaker %>:</div>
+					    <div class="col-sm-4"><%= f.check_box :speaker %></div>
 			  		</div>
-						<div class="col-xs-12 col-sm-2">
-					    <%= f.label :events %>
-					    <%= f.check_box :events %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :events %>:</div>
+					    <div class="col-sm-4"><%= f.check_box :events %></div>
 			  		</div>
-						<div class="col-xs-12 col-sm-2">
-					    <%= f.label :golf %>
-					    <%= f.check_box :golf %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :golf %>:</div>
+					    <div class="col-sm-4"><%= f.check_box :golf %></div>
 			  		</div>
-						<div class="col-xs-12 col-sm-2">
-					    <%= f.label :sponsorship %>
-					    <%= f.check_box :sponsorship %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :sponsorship %>:</div>
+					    <div class="col-sm-4"><%= f.check_box :sponsorship %></div>
 			  		</div>
 					</div>
 					
 					<div class="row">
-						<div class="col-xs-12 col-sm-12">
-					    <%= f.label :comments %>
-					    <%= f.text_area :comments, cols: 75, rows: 2 %>
+						<div class="col-sm-4">
+					    <div class="col-sm-4"><%= f.label :comments %>:</div>
+					    <div class="col-sm-4"><%= f.text_area :comments, cols: 75, rows: 2 %></div>
 			  		</div>
 					</div>
 				</div>
