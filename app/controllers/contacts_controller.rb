@@ -1,10 +1,16 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy], :unless => :initial_search?
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    
+    if params[:simple_query]
+      @contacts = Contact.search_by_contact_full_name(params[:simple_query]).order("created_at DESC")
+    else
+      @contacts = Contact.all.order('created_at DESC')
+    end
+    
   end
 
   # GET /contacts/1
@@ -105,5 +111,16 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit(:first_name, :last_name, :email_address, :organization, :title, :phone_number, :member,
                                       :speaker, :events, :golf, :affiliation_id, :comments)
+    end
+    
+    def search
+      term = params[:term] || nil
+      contacts = []
+      contacts = Contact.where('name LIKE ?', "%#{term}%") if term
+      render json: contacts
+    end
+    
+    def initial_search?
+      params[:id] == "search"
     end
 end
