@@ -1,13 +1,38 @@
-<div class="alert alert-success" role="alert"><%= notice %></div>
+<% flash.each do |key, value| %>
 
-<button type="button" class="btn btn-default btn-xs"><%= link_to 'New Contact', new_contact_path %></button>
+	<%= key %>
+	
+  <div class="alert alert-<%= key %> alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= value %>
+   </div>
+<% end %>
+
+<div class="alert alert-success alert-dismissible">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<%= notice %>
+</div>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">Contacts</h1>
-      <div class="row placeholders">
+  <div class="row">	
 
+		<div class="col-lg-6">
+			<%= form_tag contacts_path, method: 'get', class: 'navbar-form', role: 'search' do %>
+		  <div>
+				<%= text_field_tag :simple_query, params[:simple_query], size: 50, placeholder: "Search by name...", class: "form-control"%>
+				<%= submit_tag 'Search', class: 'btn btn-success' %>
+		  </div><!-- /input-group -->
+			<% end %>
+		</div><!-- /.col-lg-6 -->
+
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">	
+      <h1 class="page-header">Contacts</h1>
+
+			<button type="button" class="btn btn-default btn-xs"><%= link_to 'New Contact', new_contact_path %></button>
+			<br /><br />
+
+      <div class="row placeholders">
  				<% @contacts.each do |contact| %>
         <div class="col-xs-6 col-sm-3 placeholder">
           <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-thumbnail" alt="Generic placeholder thumbnail">
@@ -21,5 +46,4 @@
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-default btn-xs"><%= link_to 'New Contact', new_contact_path %></button>
-<br><br>
+<br /><br />
