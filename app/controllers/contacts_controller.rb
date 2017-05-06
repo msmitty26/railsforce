@@ -148,37 +148,33 @@ class ContactsController < ApplicationController
       
       if params[:member].present?
         member = true
-      else
-        member = false
       end
       
       if params[:speaker].present?
         speaker = true
-      else
-        speaker = false
       end
       
       if params[:events].present?
         events = true
-      else
-        events = false
       end
       
       if params[:golf].present?
         golf = true
-      else
-        golf = false
       end
       
       if params[:sponsorship].present?
         sponsorship = true
-      else
-        sponsorship = false
       end
       
-      @contacts = Contact.where("first_name like ? or last_name like ? or email_address like ? or organization like ? or title like ? 
-                                  or phone_number like ? or member like ? or speaker like ? or events like ? or golf like ? or sponsorship like ?",
-                                  name, name, email_address, organization, title, phone_number, member, speaker, events, golf, sponsorship)
+      # if params[:search_type] == "or"
+        @contacts = Contact.where("first_name like ? OR last_name like ? OR email_address like ? OR organization like ? OR title like ? 
+                                    OR phone_number like ? OR member like ? OR speaker like ? OR events like ? OR golf like ? OR sponsorship like ?",
+                                    name, name, email_address, organization, title, phone_number, member, speaker, events, golf, sponsorship)
+      # elsif params[:search_type] == "and"
+      #   @contacts = Contact.where("first_name like ? AND last_name like ? AND email_address like ? AND organization like ? AND title like ? 
+      #                               AND phone_number like ? AND member like ? AND speaker like ? AND events like ? AND golf like ? AND sponsorship like ?",
+      #                               name, name, email_address, organization, title, phone_number, member, speaker, events, golf, sponsorship)
+      # end
 
     end
   end
@@ -192,7 +188,7 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:first_name, :last_name, :email_address, :organization, :title, :phone_number, :member,
-                                      :speaker, :events, :golf, :affiliation_id, :comments)
+                                      :speaker, :sponsorship, :events, :golf, :affiliation_id, :comments)
     end
     
     def quick_search
