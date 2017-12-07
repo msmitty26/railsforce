@@ -5,8 +5,8 @@ class Contact < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email_address, :organization
   validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "format is invalid" }, :allow_blank => true
   
-  def self.search_by_contact_full_name(simple_query)
-    where("CONCAT_WS(' ', first_name, last_name) LIKE :q", :q => "%#{simple_query}%")
+  def self.search_by_contact_full_name(simple_query, page)
+    where("CONCAT_WS(' ', first_name, last_name) LIKE :q", :q => "%#{simple_query}%").paginate(page: page, per_page: 25)
   end
   
   def find_by_first_name(first_name)
