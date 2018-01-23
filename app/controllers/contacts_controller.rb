@@ -167,7 +167,7 @@ class ContactsController < ApplicationController
       end
       
       # if params[:search_type] == "or"
-        @contacts = Contact.where("first_name like ? OR last_name like ? OR email_address like ? OR organization like ? OR title like ? 
+        contacts = Contact.where("first_name like ? OR last_name like ? OR email_address like ? OR organization like ? OR title like ? 
                                     OR phone_number like ? OR member like ? OR speaker like ? OR events like ? OR golf like ? OR sponsorship like ?",
                                     name, name, email_address, organization, title, phone_number, member, speaker, events, golf, sponsorship)
       # elsif params[:search_type] == "and"
@@ -176,6 +176,7 @@ class ContactsController < ApplicationController
       #                               name, name, email_address, organization, title, phone_number, member, speaker, events, golf, sponsorship)
       # end
 
+      @contacts = contacts.sort_by(&:last_name)
     end
   end
 

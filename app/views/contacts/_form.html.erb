@@ -1,6 +1,7 @@
+</br>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 
 			<%= form_for(contact) do |f| %>
 			  <% if contact.errors.any? %>
@@ -17,85 +18,100 @@
 
 				<div class="container">
 					<div class="row">
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					   	<div class="col-sm-4"><%= f.label :first_name %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :first_name %></div>
 					  </div>
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					   	<div class="col-sm-4"><%= f.label :last_name %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :last_name %></div>
 					  </div>
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					  </div>
 					</div>
 
+					</br>
 					<div class="row">
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :organization %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :organization, size: 30 %></div>
 					  </div>
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :title %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :title, size: 30 %></div>
 					  </div>
-					  <div class="col-sm-4">
+					  <div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					  </div>
 					</div>
 
+					</br>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :email_address %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :email_address, size: 30 %></div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :phone_number %>:</div>
 					    <div class="col-sm-4"><%= f.text_field :phone_number %></div>
 			  		</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 						</div>
 					</div>
 
+					</br>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :affiliation_id %>:</div>
 					    <div class="col-sm-4"><%= f.collection_select :affiliation_id, Affiliation.order(:name),:id,:name, include_blank: true, :remote => true %></div>
 			  		</div>
 					</div>
 
+					</br>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :member %>:</div>
 					    <div class="col-sm-4"><%= f.check_box :member %></div>
 			  		</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :speaker %>:</div>
 					    <div class="col-sm-4"><%= f.check_box :speaker %></div>
 			  		</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :events %>:</div>
 					    <div class="col-sm-4"><%= f.check_box :events %></div>
 			  		</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :golf %>:</div>
 					    <div class="col-sm-4"><%= f.check_box :golf %></div>
 			  		</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :sponsorship %>:</div>
 					    <div class="col-sm-4"><%= f.check_box :sponsorship %></div>
 			  		</div>
 					</div>
 					
+					</br>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-md-5 col-md-offset-0">
 					    <div class="col-sm-4"><%= f.label :comments %>:</div>
 					    <div class="col-sm-4"><%= f.text_area :comments, cols: 75, rows: 2 %></div>
 			  		</div>
 					</div>
 				</div>
 
-				<%= f.submit :class => "btn btn-default btn-xs" %>
+				</br>
+				<div class="row">
+					<div class="col-md-offset-1">
+						<%= f.submit :class => "btn btn-primary" %>						
+						<%= link_to 'Cancel', contacts_path, :class => "btn btn-primary" %>
+						<%= link_to 'Delete Contact', @contact, method: :delete, :class => "btn btn-default", data: { confirm: 'Are you sure?' } %>
+						</br>
+						</div>
 
+					</div>
+				</div>
 			<% end %>
 			</div>
 		</div>
-</div>
+
+</br>

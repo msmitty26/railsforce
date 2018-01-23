@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-sm-6 col-sm-offset-0 col-md-5 col-md-offset-0">
 			<%= form_tag search_contacts_path, method: 'get', class: 'navbar-form', role: 'search' do %>
 
 			  <!-- div class="row">	
@@ -19,48 +19,68 @@
 				<b>Search results are based on an "OR" search</b>
 				</br></br>
 
-			  <div>
-					<%= label_tag :name %>:
-					<%= text_field_tag :name, params[:name], size: 50, placeholder: "Search by name...", class: "form-control"%>
+			  <div class="row">
+					<div class="col-sm-6 col-sm-offset-0 col-md-7 col-md-offset-0">
+						<div class="col-sm-6"><%= label_tag :name %>:</div>
+						<div class="col-sm-6"><%= text_field_tag :name, params[:name], size: 50, placeholder: "Search by name...", class: "form-control"%></div>
+					</div>
 				</div>
-				<div>
-					<%= label_tag :email_address %>:
-					<%= text_field_tag :email_address, params[:email_address], size: 50, placeholder: "Search by email...", class: "form-control"%>
-				</div>
-				<div>
-			    <%= label_tag :organization %>:
-			    <%= text_field_tag :organization, params[:organization], size: 30, placeholder: "Search by organization...", class: "form-control" %>
-				</div>
-				<div>
-			    <%= label_tag :title %>:
-			    <%= text_field_tag :title, params[:title], size: 30, placeholder: "Search by title...", class: "form-control" %>
-				</div>
-				<div>
-			    <%= label_tag :phone_number %>:
-			    <%= text_field_tag :phone_number, params[:phone_number], placeholder: "Search by phone...", class: "form-control" %>
-				</div>
-				<div>
-			    <%= label_tag :member %>:
-			    <%= check_box_tag :member, params[:member] %>
-			    <%= label_tag :speaker %>:
-			    <%= check_box_tag :speaker, params[:speaker] %>
-			    <%= label_tag :events %>:
-			    <%= check_box_tag :events, params[:events] %>
-			    <%= label_tag :golf %>:
-			    <%= check_box_tag :golf, params[:golf] %>
-			    <%= label_tag :sponsorship %>:
-			    <%= check_box_tag :sponsorship, params[:sponsorship] %>
 
+				</br>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-0 col-md-7 col-md-offset-0">
+						<div class="col-sm-6"><%= label_tag :email_address %>:</div>
+						 <div class="col-sm-6"><%= text_field_tag :email_address, params[:email_address], size: 50, placeholder: "Search by email...", class: "form-control"%></div>
+					</div>
+				</div>
+				
+				</br>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-0 col-md-7 col-md-offset-0">
+						<div class="col-sm-6"><%= label_tag :organization %>:</div>
+			    	<div class="col-sm-6"><%= text_field_tag :organization, params[:organization], size: 30, placeholder: "Search by organization...", class: "form-control" %></div>
+					</div>
+				</div>
+				
+				</br>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-0 col-md-7 col-md-offset-0">
+						<div class="col-sm-6"><%= label_tag :title %>:</div>
+			    	<div class="col-sm-6"><%= text_field_tag :title, params[:title], size: 30, placeholder: "Search by title...", class: "form-control" %></div>
+					</div>
+				</div>
+				
+				</br>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-0 col-md-7 col-md-offset-0">
+						<div class="col-sm-6"><%= label_tag :phone_number %>:</div>
+			    	<div class="col-sm-6"><%= text_field_tag :phone_number, params[:phone_number], placeholder: "Search by phone...", class: "form-control" %></div>
+					</div>
+				</div>
+				
+				</br>
+				<div class="row">
+					<div class="col-sm-offset-1">
+				    <%= label_tag :member %>:
+				    <%= check_box_tag :member, params[:member] %>
+				    <%= label_tag :speaker %>:
+				    <%= check_box_tag :speaker, params[:speaker] %>
+				    <%= label_tag :events %>:
+				    <%= check_box_tag :events, params[:events] %>
+				    <%= label_tag :golf %>:
+				    <%= check_box_tag :golf, params[:golf] %>
+				    <%= label_tag :sponsorship %>:
+				    <%= check_box_tag :sponsorship, params[:sponsorship] %>
+					</div>
 			  </div><!-- /input-group -->
 				<br /><br />
-				<%= submit_tag 'Search', class: 'btn btn-success' %>
+				<%= submit_tag 'Search', class: "btn btn-primary" %>
+				
+				<%= link_to 'Cancel', contacts_path, class: "btn btn-primary" %>
 			<% end %>
 		</div><!-- /.col-lg-6 -->
 
   </div><!-- /.row -->
 </div>
-<br /><br />
 
 <%= render 'results', contacts: @contacts %>
-
-<%= link_to 'Cancel', contacts_path %>

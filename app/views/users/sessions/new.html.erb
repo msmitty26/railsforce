@@ -1,26 +1,45 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+		<div class="col-md-5">
+      <section class="login-form">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, :size=>250 , autofocus: true %>
-  </div>
+				<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+				</br>
+				
+				<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "login" }) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", :size 100 %>
-  </div>
+					<div class="field">
+				    <%= f.label :email %><br />
+				    <%= f.email_field :email, :size=>250 , autofocus: true, :size => 35, :class => "form-control input-lg" %>
+				  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+				  <div class="field">
+				    <%= f.label :password %><br />
+				    <%= f.password_field :password, :autocomplete => "off", :size => 35, :class => "form-control input-lg" %>
+				  </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+				  <% if devise_mapping.rememberable? -%>
+				    <div class="field">
+				      <%= f.check_box :remember_me %>
+				      <%= f.label :remember_me %>
+				    </div>
+				  <% end -%>
 
-<%= render "users/shared/links" %>
+				  <div class="actions">
+				    <%= f.submit "Sign in", :class => "btn btn-lg btn-primary btn-block" %>
+				  </div>
+
+				<% end %>
+
+				<%= render "users/shared/links" %>
+
+			</section>  
+		</div>
+	</div>
+</div>
+
+
+
+          
+          <div class="pwstrength_viewport_progress"></div>

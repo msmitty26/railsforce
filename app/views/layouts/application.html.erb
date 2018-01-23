@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AFFIRM a RailsForce App</title>
+    <title>AFFIRM...powered by Evotech</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,5 +19,10 @@
 		<!-- End devise code -->
 
     <%= yield %>
+
   </body>
+
+	</br>
+	<footer class="footer">Site Powered By: <a href="http://evotech.technology/"><%= image_tag "evo_logo.png", :class => "style_image"%></a></footer>
+
 </html>
