@@ -6,9 +6,9 @@ class ContactsController < ApplicationController
   def index
     
     if params[:simple_query]
-      @contacts = Contact.search_by_contact_full_name(params[:simple_query], params[:page]).order("created_at DESC")
+      @contacts = Contact.search_by_contact_full_name(params[:simple_query], params[:page]).order("last_name ASC")
     else
-      @contacts = Contact.all.order('created_at DESC').paginate(page: params[:page], per_page: 25)
+      @contacts = Contact.all.order('last_name ASC').paginate(page: params[:page], per_page: 25)
     end
 
   end
