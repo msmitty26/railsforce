@@ -4,7 +4,8 @@
 		<div class="col-md-5">
       <section class="login-form">
 
-				<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+				<!-- img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" / -->
+				<%= image_tag("AFFIRMconnect02.png", size: "275", :class =>"img-responsive", :alt => "") %>
 				</br>
 				
 				<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "login" }) do |f| %>
